@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"os"
 
-	"test-app/api"
+	"github.com/paulcranmer/test-app/api"
 )
 
 func main() {
