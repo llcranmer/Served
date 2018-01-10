@@ -1,15 +1,11 @@
-FROM golang:1.9.2-alpine
+  FROM alpine:3.5
+  MAINTAINER Toul Cranmer
 
-MAINTAINER Paul Cranmer
+  COPY ./test-app /app/test-app
 
-ENV SOURCES /go/src/github.com/paulcranmer/test-app
+  RUN chmod +x /app/test-app
 
-COPY . ${SOURCES}
+  ENV PORT 8080
+  EXPOSE 8080
 
-RUN cd ${SOURCES} && CGO_ENABLED=0 go install
-
-ENV PORT 8080
-
-EXPOSE 8080
-
-ENTRYPOINT test-app
+  ENTRYPOINT /app/test-app 
