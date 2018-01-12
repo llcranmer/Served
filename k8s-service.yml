@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: test-app
+    labels:
+      app: test-app
+      tier: service
+spec:
+  #Use NodePort here to be able to access a port on each Node
+  type: NodePort
+  ports:
+  - port: 8080
+  selector:
+    app: test-app
